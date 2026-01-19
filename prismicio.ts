@@ -33,10 +33,18 @@ const routes: Route[] = [
 export const createClient = (config: ClientConfig = {}) => {
   const client = baseCreateClient(repositoryName, {
     routes,
-    fetchOptions:
-      process.env.NODE_ENV === "production"
-        ? { next: { tags: ["prismic"] }, cache: "force-cache" }
-        : { next: { revalidate: 5 } },
+    fetch: (url, options) =>
+      fetch(url, {
+        ...options,
+        ...(process.env.NODE_ENV === "production"
+          ? {
+              cache: "force-cache",
+              next: { tags: ["prismic"] },
+            }
+          : {
+              next: { revalidate: 5 },
+            }),
+      }),
     ...config,
   });
 
@@ -44,3 +52,5 @@ export const createClient = (config: ClientConfig = {}) => {
 
   return client;
 };
+
+
