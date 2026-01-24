@@ -35,7 +35,7 @@ const HeroDemo: FC<HeroDemoProps> = ({ slice }) => {
 
     // Create the timeline
     const tl = gsap.timeline({
-      defaults: { duration: 1.5, ease: "circ.out" },
+      defaults: { duration: 1.5, ease: "power1.out" },
     });
 
     // PARALLAX LOGIC:
@@ -51,7 +51,7 @@ const HeroDemo: FC<HeroDemoProps> = ({ slice }) => {
       ref={rootRef}
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="h-screen w-full overflow-hidden relative bg-black"
+      className="h-screen w-full overflow-hidden font-pop relative bg-black"
     >
       {/* FIXED CONTENT OVERLAY */}
       <div className="absolute bottom-20 left-10 text-white z-50 pointer-events-none">
@@ -60,7 +60,7 @@ const HeroDemo: FC<HeroDemoProps> = ({ slice }) => {
         </div>
         <div className="text-2xl opacity-80">
           <PrismicRichText field={slice.primary.description} />
-        </div>
+        </div>  
       </div>
 
       <Swiper

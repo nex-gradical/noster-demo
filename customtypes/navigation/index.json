@@ -1,0 +1,76 @@
+{
+  "format": "custom",
+  "id": "navigation",
+  "label": "Navigation",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "menu_items": {
+        "type": "Group",
+        "config": {
+          "label": "Menu items",
+          "repeat": true,
+          "fields": {
+            "menu_id": {
+              "type": "Text",
+              "config": {
+                "label": "Menu ID",
+                "placeholder": ""
+              }
+            },
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            },
+            "has_mega_menu": {
+              "type": "Boolean",
+              "config": {
+                "label": "Has MegaMenu",
+                "placeholder_false": "False",
+                "placeholder_true": "True",
+                "default_value": false
+              }
+            }
+          }
+        }
+      },
+      "primary_cta": {
+        "type": "Link",
+        "config": {
+          "label": "Primary CTA",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "mega_menu": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

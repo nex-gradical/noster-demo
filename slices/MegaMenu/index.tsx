@@ -1,0 +1,46 @@
+import { FC } from "react";
+import { Content } from "@prismicio/client";
+import { SliceComponentProps } from "@prismicio/react";
+
+/**
+ * Props for `MegaMenu`.
+ */
+export type MegaMenuProps = SliceComponentProps<Content.MegaMenuSlice>;
+
+/**
+ * Component for "MegaMenu" Slices.
+ */
+const MegaMenu: FC<MegaMenuProps> = ({ slice }) => {
+  return (
+    <section
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+    >
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      Placeholder component for mega_menu (variation: {slice.variation}) slices.
+      <br />
+      <strong>You can edit this slice directly in your code editor.</strong>
+      {/**
+       * 💡 Use the Prismic MCP server with your code editor
+       * 📚 Docs: https://prismic.io/docs/ai#code-with-prismics-mcp-server
+       */}
+    </section>
+  );
+};
+
+export default MegaMenu;

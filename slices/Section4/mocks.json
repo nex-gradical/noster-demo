@@ -1,0 +1,175 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Eu elit fugiat aliqua pariatur fugiat duis irure. Ut et amet nisi aliqua non veniam quis id anim nostrud veniam cupidatat mollit. Aliqua sint adipisicing esse sint ullamco minim elit irure sunt ad aliqua velit et."
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Incididunt exercitation aliqua commodo exercitation magna ut officia occaecat reprehenderit veniam cupidatat. Occaecat amet sit sit consequat dolor duis laboris. Quis ullamco exercitation mollit."
+						}
+					}
+				]
+			},
+			"cards": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea",
+										"width": 5000,
+										"height": 4613
+									},
+									"url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea",
+									"width": 5000,
+									"height": 4613,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "flies",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"category",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "load",
+									"type": "Text"
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Consequat cupidatat minim velit minim officia adipisicing ad. Deserunt eiusmod culpa sunt Lorem in elit tempor est pariatur pariatur mollit aliquip. Labore in irure exercitation et dolor eu Lorem culpa ad id."
+											}
+										}
+									]
+								}
+							],
+							[
+								"location",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Ea dolore elit et officia et quis labore commodo laborum nulla qui do incididunt enim Lorem."
+											}
+										}
+									]
+								}
+							],
+							[
+								"availability_status",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "language",
+									"type": "Text"
+								}
+							],
+							[
+								"tags",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "solve",
+									"type": "Text"
+								}
+							],
+							[
+								"link",
+								{
+									"key": "254cd748-6cc0-41a7-ab92-692f5f185c48",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev",
+										"text": "low"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"links_and_labels": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "37d2fbb3-66ad-417a-b793-6f7b6f5406ff",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io",
+										"text": "sign"
+									}
+								}
+							],
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "purple",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"link": {
+				"key": "49fbd1ce-0436-4d9a-9453-4d3cbcabb2fc",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "underline"
+				}
+			},
+			"label": {
+				"__TYPE__": "FieldContent",
+				"value": "nearer",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
