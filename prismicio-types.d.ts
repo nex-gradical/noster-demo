@@ -69,7 +69,102 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-type SandboxDocumentDataSlicesSlice = Section2Slice | HeroDemoSlice;
+/**
+ * Item in *Navigation → Menu items*
+ */
+export interface NavigationDocumentDataMenuItemsItem {
+  /**
+   * Menu ID field in *Navigation → Menu items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.menu_items[].menu_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  menu_id: prismic.KeyTextField;
+
+  /**
+   * Label field in *Navigation → Menu items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.menu_items[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *Navigation → Menu items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.menu_items[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Has MegaMenu field in *Navigation → Menu items*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: navigation.menu_items[].has_mega_menu
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  has_mega_menu: prismic.BooleanField;
+}
+
+type NavigationDocumentDataSlicesSlice = MegaMenuSlice;
+
+/**
+ * Content for Navigation documents
+ */
+interface NavigationDocumentData {
+  /**
+   * Menu items field in *Navigation*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.menu_items[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  menu_items: prismic.GroupField<Simplify<NavigationDocumentDataMenuItemsItem>>;
+
+  /**
+   * Slice Zone field in *Navigation*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<NavigationDocumentDataSlicesSlice>;
+}
+
+/**
+ * Navigation document from Prismic
+ *
+ * - **API ID**: `navigation`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NavigationDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<NavigationDocumentData>,
+    "navigation",
+    Lang
+  >;
+
+type SandboxDocumentDataSlicesSlice =
+  | Section4Slice
+  | Section3Slice
+  | Section2Slice
+  | HeroDemoSlice;
 
 /**
  * Content for Sandbox documents
@@ -145,7 +240,7 @@ export type SandboxDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = SandboxDocument;
+export type AllDocumentTypes = NavigationDocument | SandboxDocument;
 
 /**
  * Item in *HeroDemo → Default → Primary → Carousal*
@@ -230,6 +325,184 @@ export type HeroDemoSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *MegaMenu → Default → Primary → Columns*
+ */
+export interface MegaMenuSliceDefaultPrimaryColumnsItem {
+  /**
+   * Links field in *MegaMenu → Default → Primary → Columns*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.default.primary.columns[].links
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  links: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+
+  /**
+   * Label field in *MegaMenu → Default → Primary → Columns*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.default.primary.columns[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
+ * Item in *MegaMenu → Default → Primary → ColumnOne*
+ */
+export interface MegaMenuSliceDefaultPrimaryColumnoneItem {
+  /**
+   * Heading field in *MegaMenu → Default → Primary → ColumnOne*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.default.primary.columnone[].heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Description field in *MegaMenu → Default → Primary → ColumnOne*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.default.primary.columnone[].description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Link One field in *MegaMenu → Default → Primary → ColumnOne*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.default.primary.columnone[].link_one
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link_one: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Item in *MegaMenu → Default → Primary → ImageColumn*
+ */
+export interface MegaMenuSliceDefaultPrimaryImagecolumnItem {
+  /**
+   * Image field in *MegaMenu → Default → Primary → ImageColumn*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.default.primary.imagecolumn[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *MegaMenu → Default → Primary → ImageColumn*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.default.primary.imagecolumn[].heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Description field in *MegaMenu → Default → Primary → ImageColumn*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.default.primary.imagecolumn[].description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *MegaMenu → Default → Primary*
+ */
+export interface MegaMenuSliceDefaultPrimary {
+  /**
+   * Menu ID field in *MegaMenu → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.default.primary.menu_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  menu_id: prismic.KeyTextField;
+
+  /**
+   * Columns field in *MegaMenu → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.default.primary.columns[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  columns: prismic.GroupField<Simplify<MegaMenuSliceDefaultPrimaryColumnsItem>>;
+
+  /**
+   * ColumnOne field in *MegaMenu → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.default.primary.columnone[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  columnone: prismic.GroupField<
+    Simplify<MegaMenuSliceDefaultPrimaryColumnoneItem>
+  >;
+
+  /**
+   * ImageColumn field in *MegaMenu → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.default.primary.imagecolumn[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  imagecolumn: prismic.GroupField<
+    Simplify<MegaMenuSliceDefaultPrimaryImagecolumnItem>
+  >;
+}
+
+/**
+ * Default variation for MegaMenu Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MegaMenuSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MegaMenuSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *MegaMenu*
+ */
+type MegaMenuSliceVariation = MegaMenuSliceDefault;
+
+/**
+ * MegaMenu Shared Slice
+ *
+ * - **API ID**: `mega_menu`
+ * - **Description**: MegaMenu
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MegaMenuSlice = prismic.SharedSlice<
+  "mega_menu",
+  MegaMenuSliceVariation
+>;
+
+/**
  * Primary content in *Section2 → Default → Primary*
  */
 export interface Section2SliceDefaultPrimary {
@@ -294,6 +567,333 @@ export type Section2Slice = prismic.SharedSlice<
   Section2SliceVariation
 >;
 
+/**
+ * Item in *Section3 → Default → Primary → Group*
+ */
+export interface Section3SliceDefaultPrimaryGroupItem {
+  /**
+   * Heading field in *Section3 → Default → Primary → Group*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section3.default.primary.group[].heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Description field in *Section3 → Default → Primary → Group*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section3.default.primary.group[].description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Image field in *Section3 → Default → Primary → Group*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section3.default.primary.group[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *Section3 → Default → Primary*
+ */
+export interface Section3SliceDefaultPrimary {
+  /**
+   * Main Heading field in *Section3 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section3.default.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  main_heading: prismic.RichTextField;
+
+  /**
+   * Main Description field in *Section3 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section3.default.primary.main_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  main_description: prismic.RichTextField;
+
+  /**
+   * Heading field in *Section3 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section3.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Description field in *Section3 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section3.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Main Image field in *Section3 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section3.default.primary.main_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  main_image: prismic.ImageField<never>;
+
+  /**
+   * Group field in *Section3 → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section3.default.primary.group[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  group: prismic.GroupField<Simplify<Section3SliceDefaultPrimaryGroupItem>>;
+}
+
+/**
+ * Default variation for Section3 Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type Section3SliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<Section3SliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Section3*
+ */
+type Section3SliceVariation = Section3SliceDefault;
+
+/**
+ * Section3 Shared Slice
+ *
+ * - **API ID**: `section3`
+ * - **Description**: Section3
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type Section3Slice = prismic.SharedSlice<
+  "section3",
+  Section3SliceVariation
+>;
+
+/**
+ * Item in *Section4 → Default → Primary → Cards*
+ */
+export interface Section4SliceDefaultPrimaryCardsItem {
+  /**
+   * Link field in *Section4 → Default → Primary → Cards*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section4.default.primary.cards[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Image field in *Section4 → Default → Primary → Cards*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section4.default.primary.cards[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Category  field in *Section4 → Default → Primary → Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section4.default.primary.cards[].category
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  category: prismic.KeyTextField;
+
+  /**
+   * Title field in *Section4 → Default → Primary → Cards*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section4.default.primary.cards[].title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Location field in *Section4 → Default → Primary → Cards*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section4.default.primary.cards[].location
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  location: prismic.RichTextField;
+
+  /**
+   * Availability Status field in *Section4 → Default → Primary → Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section4.default.primary.cards[].availability_status
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  availability_status: prismic.KeyTextField;
+
+  /**
+   * Tags field in *Section4 → Default → Primary → Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section4.default.primary.cards[].tags
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  tags: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Section4 → Default → Primary → Links and Labels*
+ */
+export interface Section4SliceDefaultPrimaryLinksAndLabelsItem {
+  /**
+   * Link field in *Section4 → Default → Primary → Links and Labels*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section4.default.primary.links_and_labels[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Label field in *Section4 → Default → Primary → Links and Labels*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section4.default.primary.links_and_labels[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Section4 → Default → Primary*
+ */
+export interface Section4SliceDefaultPrimary {
+  /**
+   * Heading field in *Section4 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section4.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Description field in *Section4 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section4.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Cards field in *Section4 → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section4.default.primary.cards[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  cards: prismic.GroupField<Simplify<Section4SliceDefaultPrimaryCardsItem>>;
+
+  /**
+   * Links and Labels field in *Section4 → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section4.default.primary.links_and_labels[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  links_and_labels: prismic.GroupField<
+    Simplify<Section4SliceDefaultPrimaryLinksAndLabelsItem>
+  >;
+
+  /**
+   * Link field in *Section4 → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section4.default.primary.link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Label field in *Section4 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section4.default.primary.label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Section4 Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type Section4SliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<Section4SliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Section4*
+ */
+type Section4SliceVariation = Section4SliceDefault;
+
+/**
+ * Section4 Shared Slice
+ *
+ * - **API ID**: `section4`
+ * - **Description**: Section4
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type Section4Slice = prismic.SharedSlice<
+  "section4",
+  Section4SliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -315,6 +915,10 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      NavigationDocument,
+      NavigationDocumentData,
+      NavigationDocumentDataMenuItemsItem,
+      NavigationDocumentDataSlicesSlice,
       SandboxDocument,
       SandboxDocumentData,
       SandboxDocumentDataSlicesSlice,
@@ -324,10 +928,28 @@ declare module "@prismicio/client" {
       HeroDemoSliceDefaultPrimary,
       HeroDemoSliceVariation,
       HeroDemoSliceDefault,
+      MegaMenuSlice,
+      MegaMenuSliceDefaultPrimaryColumnsItem,
+      MegaMenuSliceDefaultPrimaryColumnoneItem,
+      MegaMenuSliceDefaultPrimaryImagecolumnItem,
+      MegaMenuSliceDefaultPrimary,
+      MegaMenuSliceVariation,
+      MegaMenuSliceDefault,
       Section2Slice,
       Section2SliceDefaultPrimary,
       Section2SliceVariation,
       Section2SliceDefault,
+      Section3Slice,
+      Section3SliceDefaultPrimaryGroupItem,
+      Section3SliceDefaultPrimary,
+      Section3SliceVariation,
+      Section3SliceDefault,
+      Section4Slice,
+      Section4SliceDefaultPrimaryCardsItem,
+      Section4SliceDefaultPrimaryLinksAndLabelsItem,
+      Section4SliceDefaultPrimary,
+      Section4SliceVariation,
+      Section4SliceDefault,
     };
   }
 }

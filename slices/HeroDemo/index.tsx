@@ -35,13 +35,13 @@ const HeroDemo: FC<HeroDemoProps> = ({ slice }) => {
 
     // Create the timeline
     const tl = gsap.timeline({
-      defaults: { duration: 1.5, ease: "circ.out" },
+      defaults: { duration: 1.5, ease: "power1.out" },
     });
 
     // PARALLAX LOGIC:
     // All move to 0 (perfect alignment) but start at different offsets
     // to create different speeds in the same direction.
-    tl.fromTo(bg, { x: 0 }, { x: 0 }, 0);
+    tl.fromTo(bg, { x: 4 }, { x: 0 }, 0);
     tl.fromTo(triangleContainer, { x: 0 }, { x: 0 }, 0);
     tl.fromTo(triangleImage, { x: 55 }, { x: 0 }, 0);
   };
