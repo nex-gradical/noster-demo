@@ -16,7 +16,7 @@ const Section4: FC<Section4Props> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="mb-100"
+      className="mb-100 font-pop"
     >
       <div>
         {/* Heading and Description */}

@@ -133,6 +133,23 @@ interface NavigationDocumentData {
   menu_items: prismic.GroupField<Simplify<NavigationDocumentDataMenuItemsItem>>;
 
   /**
+   * Primary CTA field in *Navigation*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.primary_cta
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  primary_cta: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
    * Slice Zone field in *Navigation*
    *
    * - **Field Type**: Slice Zone
@@ -325,65 +342,65 @@ export type HeroDemoSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *MegaMenu → Default → Primary → Columns*
+ * Item in *MegaMenu → Default → Primary → Column One*
  */
-export interface MegaMenuSliceDefaultPrimaryColumnsItem {
+export interface MegaMenuSliceDefaultPrimaryColumnOneItem {
   /**
-   * Links field in *MegaMenu → Default → Primary → Columns*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: mega_menu.default.primary.columns[].links
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  links: prismic.Repeatable<
-    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-  >;
-
-  /**
-   * Label field in *MegaMenu → Default → Primary → Columns*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: mega_menu.default.primary.columns[].label
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  label: prismic.KeyTextField;
-}
-
-/**
- * Item in *MegaMenu → Default → Primary → ColumnOne*
- */
-export interface MegaMenuSliceDefaultPrimaryColumnoneItem {
-  /**
-   * Heading field in *MegaMenu → Default → Primary → ColumnOne*
+   * Heading field in *MegaMenu → Default → Primary → Column One*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: mega_menu.default.primary.columnone[].heading
+   * - **API ID Path**: mega_menu.default.primary.column_one[].heading
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   heading: prismic.RichTextField;
 
   /**
-   * Description field in *MegaMenu → Default → Primary → ColumnOne*
+   * Description field in *MegaMenu → Default → Primary → Column One*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: mega_menu.default.primary.columnone[].description
+   * - **API ID Path**: mega_menu.default.primary.column_one[].description
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   description: prismic.RichTextField;
 
   /**
-   * Link One field in *MegaMenu → Default → Primary → ColumnOne*
+   * Link field in *MegaMenu → Default → Primary → Column One*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: mega_menu.default.primary.columnone[].link_one
+   * - **API ID Path**: mega_menu.default.primary.column_one[].link
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
-  link_one: prismic.Repeatable<
+  link: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Item in *MegaMenu → Default → Primary → Column Two*
+ */
+export interface MegaMenuSliceDefaultPrimaryColumnsTwoItem {
+  /**
+   * Heading field in *MegaMenu → Default → Primary → Column Two*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.default.primary.columns_two[].heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Links field in *MegaMenu → Default → Primary → Column Two*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.default.primary.columns_two[].links
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  links: prismic.Repeatable<
     prismic.LinkField<string, string, unknown, prismic.FieldState, never>
   >;
 }
@@ -421,6 +438,90 @@ export interface MegaMenuSliceDefaultPrimaryImagecolumnItem {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   description: prismic.RichTextField;
+
+  /**
+   * Page Link field in *MegaMenu → Default → Primary → ImageColumn*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.default.primary.imagecolumn[].page_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  page_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Item in *MegaMenu → About UsVariation → Primary → Column One*
+ */
+export interface MegaMenuSliceAboutUsVariationPrimaryColumnOneItem {
+  /**
+   * Heading field in *MegaMenu → About UsVariation → Primary → Column One*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.aboutUsVariation.primary.column_one[].heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Link field in *MegaMenu → About UsVariation → Primary → Column One*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.aboutUsVariation.primary.column_one[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Item in *MegaMenu → About UsVariation → Primary → ImageColumn*
+ */
+export interface MegaMenuSliceAboutUsVariationPrimaryImagecolumnItem {
+  /**
+   * Image field in *MegaMenu → About UsVariation → Primary → ImageColumn*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.aboutUsVariation.primary.imagecolumn[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *MegaMenu → About UsVariation → Primary → ImageColumn*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.aboutUsVariation.primary.imagecolumn[].heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Page Link field in *MegaMenu → About UsVariation → Primary → ImageColumn*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.aboutUsVariation.primary.imagecolumn[].page_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  page_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**
@@ -438,25 +539,27 @@ export interface MegaMenuSliceDefaultPrimary {
   menu_id: prismic.KeyTextField;
 
   /**
-   * Columns field in *MegaMenu → Default → Primary*
+   * Column One field in *MegaMenu → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: mega_menu.default.primary.columns[]
+   * - **API ID Path**: mega_menu.default.primary.column_one[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  columns: prismic.GroupField<Simplify<MegaMenuSliceDefaultPrimaryColumnsItem>>;
+  column_one: prismic.GroupField<
+    Simplify<MegaMenuSliceDefaultPrimaryColumnOneItem>
+  >;
 
   /**
-   * ColumnOne field in *MegaMenu → Default → Primary*
+   * Column Two field in *MegaMenu → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: mega_menu.default.primary.columnone[]
+   * - **API ID Path**: mega_menu.default.primary.columns_two[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  columnone: prismic.GroupField<
-    Simplify<MegaMenuSliceDefaultPrimaryColumnoneItem>
+  columns_two: prismic.GroupField<
+    Simplify<MegaMenuSliceDefaultPrimaryColumnsTwoItem>
   >;
 
   /**
@@ -486,9 +589,63 @@ export type MegaMenuSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *MegaMenu → About UsVariation → Primary*
+ */
+export interface MegaMenuSliceAboutUsVariationPrimary {
+  /**
+   * Menu ID field in *MegaMenu → About UsVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.aboutUsVariation.primary.menu_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  menu_id: prismic.KeyTextField;
+
+  /**
+   * Column One field in *MegaMenu → About UsVariation → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.aboutUsVariation.primary.column_one[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  column_one: prismic.GroupField<
+    Simplify<MegaMenuSliceAboutUsVariationPrimaryColumnOneItem>
+  >;
+
+  /**
+   * ImageColumn field in *MegaMenu → About UsVariation → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mega_menu.aboutUsVariation.primary.imagecolumn[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  imagecolumn: prismic.GroupField<
+    Simplify<MegaMenuSliceAboutUsVariationPrimaryImagecolumnItem>
+  >;
+}
+
+/**
+ * About UsVariation variation for MegaMenu Slice
+ *
+ * - **API ID**: `aboutUsVariation`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MegaMenuSliceAboutUsVariation = prismic.SharedSliceVariation<
+  "aboutUsVariation",
+  Simplify<MegaMenuSliceAboutUsVariationPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *MegaMenu*
  */
-type MegaMenuSliceVariation = MegaMenuSliceDefault;
+type MegaMenuSliceVariation =
+  | MegaMenuSliceDefault
+  | MegaMenuSliceAboutUsVariation;
 
 /**
  * MegaMenu Shared Slice
@@ -929,12 +1086,16 @@ declare module "@prismicio/client" {
       HeroDemoSliceVariation,
       HeroDemoSliceDefault,
       MegaMenuSlice,
-      MegaMenuSliceDefaultPrimaryColumnsItem,
-      MegaMenuSliceDefaultPrimaryColumnoneItem,
+      MegaMenuSliceDefaultPrimaryColumnOneItem,
+      MegaMenuSliceDefaultPrimaryColumnsTwoItem,
       MegaMenuSliceDefaultPrimaryImagecolumnItem,
       MegaMenuSliceDefaultPrimary,
+      MegaMenuSliceAboutUsVariationPrimaryColumnOneItem,
+      MegaMenuSliceAboutUsVariationPrimaryImagecolumnItem,
+      MegaMenuSliceAboutUsVariationPrimary,
       MegaMenuSliceVariation,
       MegaMenuSliceDefault,
+      MegaMenuSliceAboutUsVariation,
       Section2Slice,
       Section2SliceDefaultPrimary,
       Section2SliceVariation,

@@ -41,7 +41,7 @@ const HeroDemo: FC<HeroDemoProps> = ({ slice }) => {
     // PARALLAX LOGIC:
     // All move to 0 (perfect alignment) but start at different offsets
     // to create different speeds in the same direction.
-    tl.fromTo(bg, { x: 4 }, { x: 0 }, 0);
+    tl.fromTo(bg, { x: 0 }, { x: 0 }, 0);
     tl.fromTo(triangleContainer, { x: 0 }, { x: 0 }, 0);
     tl.fromTo(triangleImage, { x: 55 }, { x: 0 }, 0);
   };
@@ -51,7 +51,7 @@ const HeroDemo: FC<HeroDemoProps> = ({ slice }) => {
       ref={rootRef}
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="h-screen w-full overflow-hidden relative bg-black"
+      className="h-screen w-full overflow-hidden font-pop relative bg-black"
     >
       {/* FIXED CONTENT OVERLAY */}
       <div className="absolute bottom-20 left-10 text-white z-50 pointer-events-none">
@@ -60,7 +60,7 @@ const HeroDemo: FC<HeroDemoProps> = ({ slice }) => {
         </div>
         <div className="text-2xl opacity-80">
           <PrismicRichText field={slice.primary.description} />
-        </div>
+        </div>  
       </div>
 
       <Swiper

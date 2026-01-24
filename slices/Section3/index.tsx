@@ -20,7 +20,7 @@ const Section3: FC<Section3Props> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="mt-20 mb-100"
+      className="mt-20 font-pop mb-100"
     >
       {/* Upper section */}
       <div className="flex justify-between px-20 mb-20">

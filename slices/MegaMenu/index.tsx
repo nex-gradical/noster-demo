@@ -16,6 +16,22 @@ const MegaMenu: FC<MegaMenuProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
+      {/* DO NOT TOUCH OR REMOVE THIS SLICE*/}
       Placeholder component for mega_menu (variation: {slice.variation}) slices.
       <br />
       <strong>You can edit this slice directly in your code editor.</strong>

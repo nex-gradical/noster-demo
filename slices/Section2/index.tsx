@@ -18,7 +18,7 @@ const Section2: FC<Section2Props> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="h-full w-full mt-40 mb-40 px-20"
+      className="h-full w-full mt-40 font-pop mb-40 px-20"
     >
       <div className="flex object-fill h-full">
         <div className="w-[50%] h-full">
