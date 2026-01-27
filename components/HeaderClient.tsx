@@ -17,20 +17,19 @@ export default function HeaderClient({ navigation }: { navigation: any }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [lastScroll, setLastScroll] = useState(0);
 
-  const navSolid = navHovered;
-
   //  SCROLL SHOW / HIDE LOGIC
   useEffect(() => {
     const handleScroll = () => {
       const current = window.scrollY;
 
-      setAtTop(current === 0);
-      setScrolledPast(current > 40);
+      const HERO_LIMIT = 80;
 
+      setAtTop(current < HERO_LIMIT);
+      setScrolledPast(current > HERO_LIMIT);
       if (current < lastScroll) {
-        setShowNav(true); // scrolling up
+        setShowNav(true);
       } else if (current > lastScroll) {
-        setShowNav(false); // scrolling down
+        setShowNav(false);
       }
 
       setLastScroll(current);
@@ -48,7 +47,7 @@ export default function HeaderClient({ navigation }: { navigation: any }) {
       <header
         className={`fixed top-7 left-1/2 -translate-x-1/2 h-20 z-100 w-[96%] transition-transform duration-300 
           ${showNav ? "translate-y-0" : "-translate-y-30"}
-           ${navHovered || (showNav && !atTop) ? "bg-white shadow" : "bg-transparent"}  rounded-2xl`}
+           ${navHovered || (showNav && scrolledPast) ? "bg-white shadow" : "bg-transparent"}  rounded-2xl`}
       >
         <nav
           onMouseLeave={() => {
@@ -82,7 +81,6 @@ export default function HeaderClient({ navigation }: { navigation: any }) {
                 color = "text-gray-400";
               }
 
-              // active tab (menu open) stays amber
               if (activeIndex === index) {
                 color = "text-amber-500";
               }
@@ -108,7 +106,7 @@ export default function HeaderClient({ navigation }: { navigation: any }) {
                   {item.has_mega_menu && megaMenu && (
                     <>
                       {megaMenu.variation === "default" && (
-                        <div className="absolute -right-2 -left-2 -top-5 h-[80vh] bg-white hidden group-hover:block z-40 rounded-2xl">
+                        <div className="absolute -right-2 -left-2 -top-5 h-[65vh] bg-white hidden group-hover:block z-40 rounded-2xl">
                           <div className="absolute top-20 w-full z-50">
                             <div className="flex mt-40 gap-10 w-full px-5">
                               {/* Column One */}
@@ -169,7 +167,10 @@ export default function HeaderClient({ navigation }: { navigation: any }) {
                                   (item: any, index: number) => (
                                     <div key={index} className="w-100 h-100">
                                       <div className="relative">
-                                        <PrismicNextImage field={item.image} />
+                                        <PrismicNextImage
+                                          field={item.image}
+                                          className="w-full h-full object-cover"
+                                        />
                                         <div className="absolute left-10 bottom-20">
                                           <PrismicRichText
                                             field={item.heading}
@@ -211,7 +212,7 @@ export default function HeaderClient({ navigation }: { navigation: any }) {
                               {/* Image Column */}
                               {megaMenu.primary.imagecolumn.map(
                                 (item: any, index: number) => (
-                                  <div key={index}>
+                                  <div key={index} className="w-100 h-100">
                                     <PrismicNextImage field={item.image} />
                                     <div>
                                       <PrismicRichText field={item.heading} />
@@ -229,8 +230,20 @@ export default function HeaderClient({ navigation }: { navigation: any }) {
               );
             })}
           </div>
-          <div className="z-200">
-            <button className="px-9 py-3 bg-green-500 rounded">
+          <div
+            className="z-200 "
+            onMouseEnter={() => {
+              setActiveIndex(null);
+              setNavHovered(false);
+            }}
+          >
+            <button
+              className={`px-9 cursor-pointer py-3 rounded transition-colors duration-300 ${
+                !showNav || (atTop && !navHovered)
+                  ? "bg-transparent border border-white text-white"
+                  : "bg-green-950 border border-green-950  hover:bg-black hover:text-white hover:border-black text-white"
+              }`}
+            >
               <PrismicNextLink field={navigation.data.primary_cta} />
             </button>
           </div>
