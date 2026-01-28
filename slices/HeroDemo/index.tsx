@@ -55,7 +55,7 @@ const HeroDemo: FC<HeroDemoProps> = ({ slice }) => {
     >
       {/* FIXED CONTENT OVERLAY */}
       <div className="absolute bottom-20 left-10 text-white z-50 pointer-events-none">
-        <div className="text-7xl mb-4 uppercase font-bold">
+        <div className="text-7xl mb-4 font-bold">
           <PrismicRichText field={slice.primary.heading} />
         </div>
         <div className="text-2xl opacity-80">
