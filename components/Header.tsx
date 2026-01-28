@@ -1,5 +1,3 @@
-// components/Header.tsx  (SERVER)
-
 import { createClient } from "@/prismicio";
 import HeaderClient from "@/components/HeaderClient";
 
