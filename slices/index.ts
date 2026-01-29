@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  conversion_panel: dynamic(() => import("./ConversionPanel")),
   hero_demo: dynamic(() => import("./HeroDemo")),
   mega_menu: dynamic(() => import("./MegaMenu")),
   section2: dynamic(() => import("./Section2")),

@@ -1,0 +1,95 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"left_panel": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Sint dolor officia ea qui incididunt. Elit reprehenderit sint sunt esse qui culpa."
+											}
+										}
+									]
+								}
+							],
+							[
+								"contact_bar",
+								{
+									"__TYPE__": "RepeatableContent",
+									"type": "Link",
+									"value": [
+										{
+											"key": "c8d3fd39-1001-4001-a3c7-37f39d3b568d",
+											"__TYPE__": "LinkContent",
+											"value": {
+												"__TYPE__": "ExternalLink",
+												"url": "https://prismic.io",
+												"text": "paint"
+											}
+										}
+									]
+								}
+							],
+							[
+								"button_link",
+								{
+									"key": "249d8ffb-4c1f-4ed6-94d8-3a0493feb38f",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "attack"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"right_pannel": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"options",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "workspace",
+									"type": "Select"
+								}
+							],
+							[
+								"heading",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Eiusmod aliquip Lorem non ipsum mollit deserunt commodo velit labore et exercitation occaecat. Esse id deserunt labore. Magna sunt excepteur ea cillum aute quis."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

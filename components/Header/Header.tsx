@@ -1,5 +1,5 @@
 import { createClient } from "@/prismicio";
-import HeaderClient from "@/components/HeaderClient";
+import HeaderClient from "@/components/Header/HeaderClient";
 
 export default async function Header() {
   const client = createClient();

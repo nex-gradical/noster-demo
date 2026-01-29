@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins, Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
+import Header from "@/components/Header/Header";
 import SmoothScroll from "@/components/SmoothScroll";
+import Footer from "@/components/Footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,6 +46,7 @@ export default function RootLayout({
         <SmoothScroll>
           <Header />
           {children}
+          <Footer/>
         </SmoothScroll>
       </body>
     </html>

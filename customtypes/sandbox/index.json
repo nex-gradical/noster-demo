@@ -18,6 +18,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "conversion_panel": {
+              "type": "SharedSlice"
+            },
             "section4": {
               "type": "SharedSlice"
             },

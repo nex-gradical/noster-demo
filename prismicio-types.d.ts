@@ -70,6 +70,271 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 /**
+ * Item in *Footer → Main links*
+ */
+export interface FooterDocumentDataMainLinksItem {
+  /**
+   * Links field in *Footer → Main links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.main_links[].links
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  links: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Item in *Footer → Sub Links*
+ */
+export interface FooterDocumentDataSubLinksItem {
+  /**
+   * Links field in *Footer → Sub Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.sub_links[].links
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  links: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Item in *Footer → Social Links*
+ */
+export interface FooterDocumentDataSocialLinksItem {
+  /**
+   * Links field in *Footer → Social Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.social_links[].links
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  links: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Item in *Footer → Testimonials*
+ */
+export interface FooterDocumentDataTestimonialsItem {
+  /**
+   * Quote field in *Footer → Testimonials*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.testimonials[].quote
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  quote: prismic.RichTextField;
+
+  /**
+   * Details field in *Footer → Testimonials*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.testimonials[].details
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  details: prismic.RichTextField;
+}
+
+/**
+ * Item in *Footer → Contacts*
+ */
+export interface FooterDocumentDataContactsItem {
+  /**
+   * Methods field in *Footer → Contacts*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Telephone, Email or Websites
+   * - **API ID Path**: footer.contacts[].methods
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  methods: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Item in *Footer → Footer Credits*
+ */
+export interface FooterDocumentDataFooterCreditsItem {
+  /**
+   * Text One field in *Footer → Footer Credits*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_credits[].text_one
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text_one: prismic.RichTextField;
+
+  /**
+   * Text Two field in *Footer → Footer Credits*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_credits[].text_two
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text_two: prismic.RichTextField;
+
+  /**
+   * Text Three field in *Footer → Footer Credits*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_credits[].text_three
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text_three: prismic.RichTextField;
+}
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Links Tab Title field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.links_tab_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  links_tab_title: prismic.RichTextField;
+
+  /**
+   * Main links field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.main_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  main_links: prismic.GroupField<Simplify<FooterDocumentDataMainLinksItem>>;
+
+  /**
+   * Sub Links field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.sub_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  sub_links: prismic.GroupField<Simplify<FooterDocumentDataSubLinksItem>>;
+
+  /**
+   * Social Links field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.social_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  social_links: prismic.GroupField<Simplify<FooterDocumentDataSocialLinksItem>>;
+
+  /**
+   * Footer Legal Links field in *Footer*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_legal_links
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  footer_legal_links: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+
+  /**
+   * Testimonals Heading field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.testimonals_heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  testimonals_heading: prismic.RichTextField;
+
+  /**
+   * Testimonials field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.testimonials[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  testimonials: prismic.GroupField<
+    Simplify<FooterDocumentDataTestimonialsItem>
+  >;
+
+  /**
+   * Contacts Heading field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.contacts_heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  contacts_heading: prismic.RichTextField;
+
+  /**
+   * Contacts field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.contacts[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  contacts: prismic.GroupField<Simplify<FooterDocumentDataContactsItem>>;
+
+  /**
+   * Footer Credits field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_credits[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  footer_credits: prismic.GroupField<
+    Simplify<FooterDocumentDataFooterCreditsItem>
+  >;
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterDocumentData>,
+    "footer",
+    Lang
+  >;
+
+/**
  * Item in *Navigation → Menu items*
  */
 export interface NavigationDocumentDataMenuItemsItem {
@@ -178,6 +443,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type SandboxDocumentDataSlicesSlice =
+  | ConversionPanelSlice
   | Section4Slice
   | Section3Slice
   | Section2Slice
@@ -257,7 +523,141 @@ export type SandboxDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = NavigationDocument | SandboxDocument;
+export type AllDocumentTypes =
+  | FooterDocument
+  | NavigationDocument
+  | SandboxDocument;
+
+/**
+ * Item in *ConversionPanel → Default → Primary → Left Panel*
+ */
+export interface ConversionPanelSliceDefaultPrimaryLeftPanelItem {
+  /**
+   * Title field in *ConversionPanel → Default → Primary → Left Panel*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conversion_panel.default.primary.left_panel[].title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Contact Bar field in *ConversionPanel → Default → Primary → Left Panel*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conversion_panel.default.primary.left_panel[].contact_bar
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  contact_bar: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+
+  /**
+   * Button Link field in *ConversionPanel → Default → Primary → Left Panel*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conversion_panel.default.primary.left_panel[].button_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Item in *ConversionPanel → Default → Primary → Right Pannel*
+ */
+export interface ConversionPanelSliceDefaultPrimaryRightPannelItem {
+  /**
+   * Heading field in *ConversionPanel → Default → Primary → Right Pannel*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conversion_panel.default.primary.right_pannel[].heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Options field in *ConversionPanel → Default → Primary → Right Pannel*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Select a space
+   * - **Default Value**: workspace
+   * - **API ID Path**: conversion_panel.default.primary.right_pannel[].options
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  options: prismic.SelectField<
+    "workspace" | "meeting_space" | "event_space",
+    "filled"
+  >;
+}
+
+/**
+ * Primary content in *ConversionPanel → Default → Primary*
+ */
+export interface ConversionPanelSliceDefaultPrimary {
+  /**
+   * Left Panel field in *ConversionPanel → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conversion_panel.default.primary.left_panel[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  left_panel: prismic.GroupField<
+    Simplify<ConversionPanelSliceDefaultPrimaryLeftPanelItem>
+  >;
+
+  /**
+   * Right Pannel field in *ConversionPanel → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conversion_panel.default.primary.right_pannel[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  right_pannel: prismic.GroupField<
+    Simplify<ConversionPanelSliceDefaultPrimaryRightPannelItem>
+  >;
+}
+
+/**
+ * Default variation for ConversionPanel Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ConversionPanelSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ConversionPanelSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ConversionPanel*
+ */
+type ConversionPanelSliceVariation = ConversionPanelSliceDefault;
+
+/**
+ * ConversionPanel Shared Slice
+ *
+ * - **API ID**: `conversion_panel`
+ * - **Description**: ConversionPanel
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ConversionPanelSlice = prismic.SharedSlice<
+  "conversion_panel",
+  ConversionPanelSliceVariation
+>;
 
 /**
  * Item in *HeroDemo → Default → Primary → Carousal*
@@ -1072,6 +1472,14 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataMainLinksItem,
+      FooterDocumentDataSubLinksItem,
+      FooterDocumentDataSocialLinksItem,
+      FooterDocumentDataTestimonialsItem,
+      FooterDocumentDataContactsItem,
+      FooterDocumentDataFooterCreditsItem,
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataMenuItemsItem,
@@ -1080,6 +1488,12 @@ declare module "@prismicio/client" {
       SandboxDocumentData,
       SandboxDocumentDataSlicesSlice,
       AllDocumentTypes,
+      ConversionPanelSlice,
+      ConversionPanelSliceDefaultPrimaryLeftPanelItem,
+      ConversionPanelSliceDefaultPrimaryRightPannelItem,
+      ConversionPanelSliceDefaultPrimary,
+      ConversionPanelSliceVariation,
+      ConversionPanelSliceDefault,
       HeroDemoSlice,
       HeroDemoSliceDefaultPrimaryCarousalItem,
       HeroDemoSliceDefaultPrimary,

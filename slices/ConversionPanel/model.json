@@ -1,0 +1,90 @@
+{
+  "id": "conversion_panel",
+  "type": "SharedSlice",
+  "name": "ConversionPanel",
+  "description": "ConversionPanel",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "left_panel": {
+          "type": "Group",
+          "config": {
+            "label": "Left Panel",
+            "repeat": false,
+            "fields": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              },
+              "contact_bar": {
+                "type": "Link",
+                "config": {
+                  "label": "Contact Bar",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": true
+                }
+              },
+              "button_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Button Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        },
+        "right_pannel": {
+          "type": "Group",
+          "config": {
+            "label": "Right Pannel",
+            "repeat": false,
+            "fields": {
+              "heading": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Heading",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              },
+              "options": {
+                "type": "Select",
+                "config": {
+                  "label": "Options",
+                  "placeholder": "Select a space",
+                  "options": [
+                    "workspace",
+                    "meeting_space",
+                    "event_space"
+                  ],
+                  "default_value": "workspace"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
