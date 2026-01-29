@@ -54,7 +54,7 @@ const HeroDemo: FC<HeroDemoProps> = ({ slice }) => {
       className="h-screen w-full overflow-hidden font-pop relative bg-black"
     >
       {/* FIXED CONTENT OVERLAY */}
-      <div className="absolute bottom-20 left-10 text-white z-50 pointer-events-none">
+      <div className="absolute bottom-20 left-10 text-white z-20 pointer-events-none">
         <div className="text-7xl mb-4 font-bold">
           <PrismicRichText field={slice.primary.heading} />
         </div>
@@ -72,6 +72,8 @@ const HeroDemo: FC<HeroDemoProps> = ({ slice }) => {
         onInit={animateLayers}
         onSlideChange={animateLayers}
         className="h-full w-full"
+        allowTouchMove={false}
+
       >
         {slice.primary.carousal.map((item, index) => (
           <SwiperSlide key={index} className="relative">
