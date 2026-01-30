@@ -1,0 +1,10 @@
+{
+  "format": "custom",
+  "id": "conversionbar",
+  "json": {
+    "Main": {}
+  },
+  "label": "ConversionBar",
+  "repeatable": false,
+  "status": true
+}

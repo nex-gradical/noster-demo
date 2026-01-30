@@ -11,11 +11,11 @@ import TriangleIcon from "../HoverTriangle";
 export default function FooterClient({ data }: any) {
   return (
     <div className="h-screen w-full  bg-[#1a171a]">
-      <div className="px-25 py-20  font-pop text-white">
+      <div className="px-25 py-20  font-pop h-full text-white">
         {/* Upper Section */}
         <div className="flex justify-between">
           {/* Left Side */}
-          <div className="w-[50%] flex flex-col gap-43">
+          <div className="w-[50%] flex flex-col h-full gap-43">
             <div>
               <div className="text-[#f5d6ab]">
                 <PrismicRichText field={data.links_tab_title} />
@@ -51,7 +51,7 @@ export default function FooterClient({ data }: any) {
                         <PrismicNextLink field={link} />
                         <TriangleIcon
                           size={15}
-                          className="mt-[7.5px] transition-transform ease-out opacity-0 duration-500 rotate-0 group-hover:rotate-40 group-hover:opacity-100 "
+                          className="mt-[7.5px] transition-transform ease-out opacity-0 duration-400 rotate-0 group-hover:rotate-40 group-hover:opacity-100 "
                         />
                       </div>
                     ))}
@@ -120,8 +120,8 @@ export default function FooterClient({ data }: any) {
                 <div>
                   {data.contacts.map((item: any, i: number) => (
                     <div key={i} className="flex gap-15">
-                      {item.methods.map((link: any) => (
-                        <div>
+                      {item.methods.map((link: any,i:number) => (
+                        <div key={i}>
                           <PrismicNextLink key={link.key} field={link} className="hover:text-[#fb4920] hover:transition-colors duration-400" />
                         </div>
                       ))}

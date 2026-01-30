@@ -69,6 +69,24 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
+interface ConversionbarDocumentData {}
+
+/**
+ * ConversionBar document from Prismic
+ *
+ * - **API ID**: `conversionbar`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ConversionbarDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ConversionbarDocumentData>,
+    "conversionbar",
+    Lang
+  >;
+
 /**
  * Item in *Footer → Main links*
  */
@@ -524,42 +542,66 @@ export type SandboxDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | ConversionbarDocument
   | FooterDocument
   | NavigationDocument
   | SandboxDocument;
 
 /**
- * Item in *ConversionPanel → Default → Primary → Left Panel*
+ * Item in *ConversionPanel → Default → Primary → Panel*
  */
-export interface ConversionPanelSliceDefaultPrimaryLeftPanelItem {
+export interface ConversionPanelSliceDefaultPrimaryPanelItem {
   /**
-   * Title field in *ConversionPanel → Default → Primary → Left Panel*
+   * Logo field in *ConversionPanel → Default → Primary → Panel*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: conversion_panel.default.primary.panel[].logo
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  logo: prismic.BooleanField;
+
+  /**
+   * Heading field in *ConversionPanel → Default → Primary → Panel*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: conversion_panel.default.primary.left_panel[].title
+   * - **API ID Path**: conversion_panel.default.primary.panel[].heading
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  title: prismic.RichTextField;
+  heading: prismic.RichTextField;
 
   /**
-   * Contact Bar field in *ConversionPanel → Default → Primary → Left Panel*
+   * Link field in *ConversionPanel → Default → Primary → Panel*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: conversion_panel.default.primary.left_panel[].contact_bar
+   * - **API ID Path**: conversion_panel.default.primary.panel[].link
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
-  contact_bar: prismic.Repeatable<
+  link: prismic.Repeatable<
     prismic.LinkField<string, string, unknown, prismic.FieldState, never>
   >;
 
   /**
-   * Button Link field in *ConversionPanel → Default → Primary → Left Panel*
+   * Dropdown Links field in *ConversionPanel → Default → Primary → Panel*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: conversion_panel.default.primary.left_panel[].button_link
+   * - **API ID Path**: conversion_panel.default.primary.panel[].dropdown_links
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  dropdown_links: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+
+  /**
+   * Button Link field in *ConversionPanel → Default → Primary → Panel*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conversion_panel.default.primary.panel[].button_link
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
   button_link: prismic.LinkField<
@@ -569,35 +611,17 @@ export interface ConversionPanelSliceDefaultPrimaryLeftPanelItem {
     prismic.FieldState,
     never
   >;
-}
 
-/**
- * Item in *ConversionPanel → Default → Primary → Right Pannel*
- */
-export interface ConversionPanelSliceDefaultPrimaryRightPannelItem {
   /**
-   * Heading field in *ConversionPanel → Default → Primary → Right Pannel*
+   * Search Bar field in *ConversionPanel → Default → Primary → Panel*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **API ID Path**: conversion_panel.default.primary.right_pannel[].heading
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   * - **Default Value**: false
+   * - **API ID Path**: conversion_panel.default.primary.panel[].search_bar
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
-  heading: prismic.RichTextField;
-
-  /**
-   * Options field in *ConversionPanel → Default → Primary → Right Pannel*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: Select a space
-   * - **Default Value**: workspace
-   * - **API ID Path**: conversion_panel.default.primary.right_pannel[].options
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  options: prismic.SelectField<
-    "workspace" | "meeting_space" | "event_space",
-    "filled"
-  >;
+  search_bar: prismic.BooleanField;
 }
 
 /**
@@ -605,27 +629,15 @@ export interface ConversionPanelSliceDefaultPrimaryRightPannelItem {
  */
 export interface ConversionPanelSliceDefaultPrimary {
   /**
-   * Left Panel field in *ConversionPanel → Default → Primary*
+   * Panel field in *ConversionPanel → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: conversion_panel.default.primary.left_panel[]
+   * - **API ID Path**: conversion_panel.default.primary.panel[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  left_panel: prismic.GroupField<
-    Simplify<ConversionPanelSliceDefaultPrimaryLeftPanelItem>
-  >;
-
-  /**
-   * Right Pannel field in *ConversionPanel → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: conversion_panel.default.primary.right_pannel[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  right_pannel: prismic.GroupField<
-    Simplify<ConversionPanelSliceDefaultPrimaryRightPannelItem>
+  panel: prismic.GroupField<
+    Simplify<ConversionPanelSliceDefaultPrimaryPanelItem>
   >;
 }
 
@@ -1472,6 +1484,8 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      ConversionbarDocument,
+      ConversionbarDocumentData,
       FooterDocument,
       FooterDocumentData,
       FooterDocumentDataMainLinksItem,
@@ -1489,8 +1503,7 @@ declare module "@prismicio/client" {
       SandboxDocumentDataSlicesSlice,
       AllDocumentTypes,
       ConversionPanelSlice,
-      ConversionPanelSliceDefaultPrimaryLeftPanelItem,
-      ConversionPanelSliceDefaultPrimaryRightPannelItem,
+      ConversionPanelSliceDefaultPrimaryPanelItem,
       ConversionPanelSliceDefaultPrimary,
       ConversionPanelSliceVariation,
       ConversionPanelSliceDefault,
