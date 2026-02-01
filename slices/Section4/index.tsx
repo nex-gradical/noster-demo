@@ -16,25 +16,25 @@ const Section4: FC<Section4Props> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="mb-100 font-pop"
+      className="mb-50 font-pop bg-[#4a0404] py-20"
     >
-      <div>
+      <div className="px-20">
         {/* Heading and Description */}
-        <div className=" flex flex-col justify-center items-center text-center mb-40 sticky top-40">
-          <div>
+        <div className=" flex flex-col justify-center items-center text-center mb-40 sticky font-pop text-[#fbefdd] top-40">
+          <div className="text-7xl ">
             <PrismicRichText field={slice.primary.heading} />
           </div>
-          <div>
+          <div className="mt-8 text-lg">
             <PrismicRichText field={slice.primary.description} />
           </div>
         </div>
         {/* Cards */}
-        <div className="flex flex-col gap-10 mb-20">
+        <div className="flex flex-col gap-10 ">
           {" "}
           {slice.primary.cards.map((item, index) => (
             <div
               key={index}
-              className="sticky rounded-xl overflow-hidden shadow-lg bg-red-400"
+              className="sticky rounded-xl overflow-hidden shadow-lg border-t border-[#4a0404] bg-[#F5D6AB]"
               style={{
                 top: `${100 + index * 10}px`,
 
@@ -44,7 +44,7 @@ const Section4: FC<Section4Props> = ({ slice }) => {
               }}
             >
               <PrismicNextLink field={item.link}>
-                <div className="flex px-20 min-h-100">
+                <div className="flex   min-h-100">
                   {" "}
                   {/* Left Image */}
                   <div className="w-1/2 h-125">
@@ -54,7 +54,7 @@ const Section4: FC<Section4Props> = ({ slice }) => {
                     />
                   </div>
                   {/* Right Info */}
-                  <div className="flex flex-col justify-between p-6">
+                  <div className="flex flex-col  justify-between p-6">
                     <div>
                       <div className="uppercase tracking-wide text-sm">
                         {item.category}
@@ -87,18 +87,18 @@ const Section4: FC<Section4Props> = ({ slice }) => {
         </div>
 
         {/* Bottom section */}
-        <div className="flex justify-around">
+        <div className="flex justify-between mt-20 ">
           <div className="flex gap-10">
             {slice.primary.links_and_labels.map((item, index) => (
               <div key={index}>
-                <PrismicNextLink field={item.link}>
+                <PrismicNextLink field={item.link} className="text-[#fbefdd]">
                   {item.label}
                 </PrismicNextLink>
               </div>
             ))}
           </div>
           <div>
-            <button>
+            <button className="text-[#fbefdd] cursor-pointer border border-[#fbefdd] px-18 py-5 rounded transition-all duration-300 hover:bg-[#fbefdd] hover:text-black">
               <PrismicNextLink field={slice.primary.link}>
                 {slice.primary.label}
               </PrismicNextLink>

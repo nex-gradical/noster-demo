@@ -1,0 +1,134 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"spaces": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
+										"width": 4024,
+										"height": 4024
+									},
+									"url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
+									"width": 4024,
+									"height": 4024,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "victory",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"type",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "create",
+									"type": "Text"
+								}
+							],
+							[
+								"availability",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": true
+								}
+							],
+							[
+								"name",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "steam",
+									"type": "Text"
+								}
+							],
+							[
+								"place",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "diameter",
+									"type": "Text"
+								}
+							],
+							[
+								"tags",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "period",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Incididunt cupidatat pariatur ad cillum est quis ut ex aute duis labore Lorem incididunt non labore. Eu veniam consectetur duis commodo nisi culpa proident irure deserunt ipsum consectetur ea voluptate."
+											}
+										}
+									]
+								}
+							],
+							[
+								"more_info_link",
+								{
+									"key": "bfa3f30f-db75-4b17-958d-f9bcbfcbffa1",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "voyage"
+									}
+								}
+							],
+							[
+								"button_one",
+								{
+									"key": "eeda3389-91f9-4a2c-9b9c-90aac5563113",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "origin"
+									}
+								}
+							],
+							[
+								"button_two",
+								{
+									"key": "88b330c0-cf17-4cb9-aafc-ce3fd51ef2bc",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev",
+										"text": "produce"
+									}
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

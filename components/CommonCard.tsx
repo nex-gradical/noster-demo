@@ -10,9 +10,9 @@ const CommonCard = ({
   buttonLink,
   showLogo,
   dropDownData,
-  isSearchCard, // This is your item.search_bar boolean
+  isSearchCard, 
 }: any) => {
-  // Map the variant string to the actual hex colors
+ 
   const bgColors: any = {
     maroon: "bg-[#4a0404]",
     green: "bg-[#253d35]",
@@ -21,9 +21,9 @@ const CommonCard = ({
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full  h-full ">
       <div
-        className={`relative w-full flex flex-col justify-between p-10 text-white rounded-sm min-h-70 ${
+        className={`relative w-full flex flex-col justify-between py-10 pr-10 pl-13 text-white rounded-xl min-h-90 max-h-100 h-full ${
           bgColors[variant] || bgColors.maroon
         }`}
       >
@@ -38,39 +38,42 @@ const CommonCard = ({
 
         <div className="flex flex-col gap-6">
           {/* 2. Title Slot */}
-          <div className="max-w-md">
+          <div className="max-w-xl text-5xl">
             <PrismicRichText field={heading} />
           </div>
 
           {/* 3. Conditional Slot: Search Dropdown OR Standard Links */}
-          {isSearchCard ? (
-            /* Mode A: Search Bar */
-            dropDownData && dropDownData.length > 0 && (
-              <div className="mt-10">
-                <DropDown dataz={dropDownData} />
-              </div>
-            )
-          ) : (
-            /* Mode B: Standard Links */
-            links && links.length > 0 && (
-              <div className="flex gap-8 text-sm font-medium">
-                {links.map((link: any, idx: number) => (
-                  <div key={idx}>
-                    <PrismicNextLink field={link} />
-                  </div>
-                ))}
-              </div>
-            )
-          )}
+          {isSearchCard
+            ? /* Mode A: Search Bar */
+              dropDownData &&
+              dropDownData.length > 0 && (
+                <div className="mt-20 px-5">
+                  <DropDown dataz={dropDownData} />
+                </div>
+              )
+            : /* Mode B: Standard Links */
+              links &&
+              links.length > 0 && (
+                <div className="flex gap-8 text-sm font-medium mt-3">
+                  {links.map((link: any, idx: number) => (
+                    <div key={idx}>
+                      <PrismicNextLink field={link} className="text-2xl" />
+                    </div>
+                  ))}
+                </div>
+              )}
         </div>
 
         {/* 4. Standard Button Slot */}
         {/* Only shows if NOT a search card and a link exists */}
         {!isSearchCard && buttonLink && (
-          <div className="mt-8">
-            <PrismicNextLink
-              field={buttonLink}
-              className="inline-block border border-white px-8 py-3 text-sm hover:bg-white hover:text-black transition-colors"/>
+          <div className="mb-8">
+            <button>
+              <PrismicNextLink
+                field={buttonLink}
+                className="border rounded border-white px-12 py-4 font-pop text-xl hover:bg-white hover:text-black transition-colors"
+              />
+            </button>
           </div>
         )}
       </div>

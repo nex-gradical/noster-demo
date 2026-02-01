@@ -51,7 +51,7 @@ const HeroDemo: FC<HeroDemoProps> = ({ slice }) => {
       ref={rootRef}
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="h-screen w-full overflow-hidden font-pop relative bg-black"
+      className="h-screen w-full overflow-hidden font-pop relative bg-black select-none"
     >
       {/* FIXED CONTENT OVERLAY */}
       <div className="absolute bottom-20 left-10 text-white z-20 pointer-events-none">

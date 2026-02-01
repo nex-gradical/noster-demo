@@ -9,4 +9,5 @@ export const components = {
   section2: dynamic(() => import("./Section2")),
   section3: dynamic(() => import("./Section3")),
   section4: dynamic(() => import("./Section4")),
+  spaces_grid: dynamic(() => import("./SpacesGrid")),
 };

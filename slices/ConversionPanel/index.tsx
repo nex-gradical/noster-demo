@@ -18,9 +18,11 @@ const ConversionPanel: FC<ConversionPanelProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      id="hide-conversion-bar"
+      className="py-20"
     >
-      <div className="w-full flex">
-        <div className="w-full flex">
+      <div className="w-full flex px-10">
+        <div className="w-full flex gap-4">
           {slice.primary.panel.map((item, i) => (
             <CommonCard
               key={i}

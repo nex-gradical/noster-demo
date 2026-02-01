@@ -11,11 +11,11 @@ import TriangleIcon from "../HoverTriangle";
 export default function FooterClient({ data }: any) {
   return (
     <div className="h-screen w-full  bg-[#1a171a]">
-      <div className="px-25 py-20  font-pop h-full text-white">
+      <div className="px-25 py-20  font-pop h-full text-white ">
         {/* Upper Section */}
-        <div className="flex justify-between">
+        <div className="flex h-full justify-between">
           {/* Left Side */}
-          <div className="w-[50%] flex flex-col h-full gap-43">
+          <div className="w-[50%] flex flex-col justify-between h-full gap-43">
             <div>
               <div className="text-[#f5d6ab]">
                 <PrismicRichText field={data.links_tab_title} />
@@ -83,7 +83,7 @@ export default function FooterClient({ data }: any) {
           </div>
 
           {/* Right Side */}
-          <div className="w-[50%] flex flex-col gap-39">
+          <div className="w-[50%] flex flex-col justify-between gap-39">
             <div className="flex flex-col gap-20">
               <div>
                 <div className="text-[#f5d6ab] pb-5">
@@ -120,9 +120,13 @@ export default function FooterClient({ data }: any) {
                 <div>
                   {data.contacts.map((item: any, i: number) => (
                     <div key={i} className="flex gap-15">
-                      {item.methods.map((link: any,i:number) => (
+                      {item.methods.map((link: any, i: number) => (
                         <div key={i}>
-                          <PrismicNextLink key={link.key} field={link} className="hover:text-[#fb4920] hover:transition-colors duration-400" />
+                          <PrismicNextLink
+                            key={link.key}
+                            field={link}
+                            className="hover:text-[#fb4920] hover:transition-colors duration-400"
+                          />
                         </div>
                       ))}
                     </div>
@@ -133,11 +137,14 @@ export default function FooterClient({ data }: any) {
             {/* Footer Credits */}
             <div>
               {data.footer_credits.map((item: any, i: number) => (
-                <div key={i} className="flex justify-between text-xs gap-5 overflow-hidden">
+                <div
+                  key={i}
+                  className="flex justify-between text-xs gap-5 overflow-hidden"
+                >
                   <div className="w-[20%]">
                     <PrismicRichText field={item.text_one} />
                   </div>
-                  <div >
+                  <div>
                     <PrismicRichText field={item.text_two} />
                   </div>
                   <div className="w-[20%]">

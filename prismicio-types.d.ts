@@ -69,7 +69,109 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-interface ConversionbarDocumentData {}
+/**
+ * Item in *ConversionBar → Promotion Tile*
+ */
+export interface ConversionbarDocumentDataPromotionTileItem {
+  /**
+   * Heading field in *ConversionBar → Promotion Tile*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conversionbar.promotion_tile[].heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Description field in *ConversionBar → Promotion Tile*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conversionbar.promotion_tile[].description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Image field in *ConversionBar → Promotion Tile*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conversionbar.promotion_tile[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Tile Link field in *ConversionBar → Promotion Tile*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conversionbar.promotion_tile[].tile_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  tile_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Content for ConversionBar documents
+ */
+interface ConversionbarDocumentData {
+  /**
+   * Heading field in *ConversionBar*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conversionbar.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Description field in *ConversionBar*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conversionbar.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Links field in *ConversionBar*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Drop Down Links
+   * - **API ID Path**: conversionbar.links
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  links: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+
+  /**
+   * Promotion Tile field in *ConversionBar*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: conversionbar.promotion_tile[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  promotion_tile: prismic.GroupField<
+    Simplify<ConversionbarDocumentDataPromotionTileItem>
+  >;
+}
 
 /**
  * ConversionBar document from Prismic
@@ -460,7 +562,86 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
+type PageDocumentDataSlicesSlice =
+  | MegaMenuSlice
+  | Section4Slice
+  | Section3Slice
+  | Section2Slice
+  | ConversionPanelSlice
+  | HeroDemoSlice;
+
+/**
+ * Content for Page documents
+ */
+interface PageDocumentData {
+  /**
+   * Page Title field in *Page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.page_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  page_title: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<PageDocumentDataSlicesSlice>; /**
+   * Meta Title field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Page document from Prismic
+ *
+ * - **API ID**: `page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
+
 type SandboxDocumentDataSlicesSlice =
+  | SpacesGridSlice
   | ConversionPanelSlice
   | Section4Slice
   | Section3Slice
@@ -545,6 +726,7 @@ export type AllDocumentTypes =
   | ConversionbarDocument
   | FooterDocument
   | NavigationDocument
+  | PageDocument
   | SandboxDocument;
 
 /**
@@ -1463,6 +1645,175 @@ export type Section4Slice = prismic.SharedSlice<
   Section4SliceVariation
 >;
 
+/**
+ * Item in *SpacesGrid → Default → Primary → Spaces*
+ */
+export interface SpacesGridSliceDefaultPrimarySpacesItem {
+  /**
+   * Image field in *SpacesGrid → Default → Primary → Spaces*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spaces_grid.default.primary.spaces[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Description field in *SpacesGrid → Default → Primary → Spaces*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spaces_grid.default.primary.spaces[].description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Type field in *SpacesGrid → Default → Primary → Spaces*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spaces_grid.default.primary.spaces[].type
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  type: prismic.KeyTextField;
+
+  /**
+   * Availability field in *SpacesGrid → Default → Primary → Spaces*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: spaces_grid.default.primary.spaces[].availability
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  availability: prismic.BooleanField;
+
+  /**
+   * Name field in *SpacesGrid → Default → Primary → Spaces*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spaces_grid.default.primary.spaces[].name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Place field in *SpacesGrid → Default → Primary → Spaces*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spaces_grid.default.primary.spaces[].place
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  place: prismic.KeyTextField;
+
+  /**
+   * Tags field in *SpacesGrid → Default → Primary → Spaces*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spaces_grid.default.primary.spaces[].tags
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  tags: prismic.KeyTextField;
+
+  /**
+   * More Info Link field in *SpacesGrid → Default → Primary → Spaces*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spaces_grid.default.primary.spaces[].more_info_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  more_info_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Button One field in *SpacesGrid → Default → Primary → Spaces*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spaces_grid.default.primary.spaces[].button_one
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  button_one: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Button Two field in *SpacesGrid → Default → Primary → Spaces*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spaces_grid.default.primary.spaces[].button_two
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  button_two: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Primary content in *SpacesGrid → Default → Primary*
+ */
+export interface SpacesGridSliceDefaultPrimary {
+  /**
+   * Spaces field in *SpacesGrid → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spaces_grid.default.primary.spaces[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  spaces: prismic.GroupField<Simplify<SpacesGridSliceDefaultPrimarySpacesItem>>;
+}
+
+/**
+ * Default variation for SpacesGrid Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type SpacesGridSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SpacesGridSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SpacesGrid*
+ */
+type SpacesGridSliceVariation = SpacesGridSliceDefault;
+
+/**
+ * SpacesGrid Shared Slice
+ *
+ * - **API ID**: `spaces_grid`
+ * - **Description**: SpacesGrid
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type SpacesGridSlice = prismic.SharedSlice<
+  "spaces_grid",
+  SpacesGridSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1486,6 +1837,7 @@ declare module "@prismicio/client" {
     export type {
       ConversionbarDocument,
       ConversionbarDocumentData,
+      ConversionbarDocumentDataPromotionTileItem,
       FooterDocument,
       FooterDocumentData,
       FooterDocumentDataMainLinksItem,
@@ -1498,6 +1850,9 @@ declare module "@prismicio/client" {
       NavigationDocumentData,
       NavigationDocumentDataMenuItemsItem,
       NavigationDocumentDataSlicesSlice,
+      PageDocument,
+      PageDocumentData,
+      PageDocumentDataSlicesSlice,
       SandboxDocument,
       SandboxDocumentData,
       SandboxDocumentDataSlicesSlice,
@@ -1538,6 +1893,11 @@ declare module "@prismicio/client" {
       Section4SliceDefaultPrimary,
       Section4SliceVariation,
       Section4SliceDefault,
+      SpacesGridSlice,
+      SpacesGridSliceDefaultPrimarySpacesItem,
+      SpacesGridSliceDefaultPrimary,
+      SpacesGridSliceVariation,
+      SpacesGridSliceDefault,
     };
   }
 }
