@@ -563,6 +563,8 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | SpacesGridSlice
+  | ToPageButInSliceSlice
   | MegaMenuSlice
   | Section4Slice
   | Section3Slice
@@ -641,6 +643,7 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 type SandboxDocumentDataSlicesSlice =
+  | ToPageButInSliceSlice
   | SpacesGridSlice
   | ConversionPanelSlice
   | Section4Slice
@@ -722,12 +725,106 @@ export type SandboxDocument<Lang extends string = string> =
     Lang
   >;
 
+type SpacepagesDocumentDataSlicesSlice = never;
+
+/**
+ * Content for spacePages documents
+ */
+interface SpacepagesDocumentData {
+  /**
+   * Heading field in *spacePages*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spacepages.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Button_Link field in *spacePages*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spacepages.button_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Slice Zone field in *spacePages*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spacepages.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<SpacepagesDocumentDataSlicesSlice>; /**
+   * Meta Title field in *spacePages*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: spacepages.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *spacePages*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: spacepages.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *spacePages*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spacepages.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * spacePages document from Prismic
+ *
+ * - **API ID**: `spacepages`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SpacepagesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<SpacepagesDocumentData>,
+    "spacepages",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | ConversionbarDocument
   | FooterDocument
   | NavigationDocument
   | PageDocument
-  | SandboxDocument;
+  | SandboxDocument
+  | SpacepagesDocument;
 
 /**
  * Item in *ConversionPanel → Default → Primary → Panel*
@@ -1814,6 +1911,291 @@ export type SpacesGridSlice = prismic.SharedSlice<
   SpacesGridSliceVariation
 >;
 
+/**
+ * Item in *ToPageButInSlice → Default → Primary → Left Contents*
+ */
+export interface ToPageButInSliceSliceDefaultPrimaryLeftContentsItem {
+  /**
+   * Return Button field in *ToPageButInSlice → Default → Primary → Left Contents*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.left_contents[].return_button
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  return_button: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Heading field in *ToPageButInSlice → Default → Primary → Left Contents*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.left_contents[].heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Description field in *ToPageButInSlice → Default → Primary → Left Contents*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.left_contents[].description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Availability Status field in *ToPageButInSlice → Default → Primary → Left Contents*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.left_contents[].availability_status
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  availability_status: prismic.KeyTextField;
+
+  /**
+   * Card Title field in *ToPageButInSlice → Default → Primary → Left Contents*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.left_contents[].card_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  card_title: prismic.RichTextField;
+
+  /**
+   * Card Button Link field in *ToPageButInSlice → Default → Primary → Left Contents*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.left_contents[].card_button_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  card_button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Item in *ToPageButInSlice → Default → Primary → Slider Pictures*
+ */
+export interface ToPageButInSliceSliceDefaultPrimarySliderPicturesItem {
+  /**
+   * Image field in *ToPageButInSlice → Default → Primary → Slider Pictures*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.slider_pictures[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Item in *ToPageButInSlice → Default → Primary → Sub Heading and counts*
+ */
+export interface ToPageButInSliceSliceDefaultPrimarySubHeadingAndCountsItem {
+  /**
+   * Heading field in *ToPageButInSlice → Default → Primary → Sub Heading and counts*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.sub_heading_and_counts[].heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Sub Heading field in *ToPageButInSlice → Default → Primary → Sub Heading and counts*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.sub_heading_and_counts[].sub_heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  sub_heading: prismic.RichTextField;
+
+  /**
+   * Unit Number field in *ToPageButInSlice → Default → Primary → Sub Heading and counts*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.sub_heading_and_counts[].unit_number
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  unit_number: prismic.KeyTextField;
+
+  /**
+   * SQ feet field in *ToPageButInSlice → Default → Primary → Sub Heading and counts*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.sub_heading_and_counts[].sq_feet
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  sq_feet: prismic.KeyTextField;
+}
+
+/**
+ * Item in *ToPageButInSlice → Default → Primary → Environment*
+ */
+export interface ToPageButInSliceSliceDefaultPrimaryEnvironmentItem {
+  /**
+   * Title field in *ToPageButInSlice → Default → Primary → Environment*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.environment[].title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *ToPageButInSlice → Default → Primary → Environment*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.environment[].description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *ToPageButInSlice → Default → Primary*
+ */
+export interface ToPageButInSliceSliceDefaultPrimary {
+  /**
+   * Left Contents field in *ToPageButInSlice → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.left_contents[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  left_contents: prismic.GroupField<
+    Simplify<ToPageButInSliceSliceDefaultPrimaryLeftContentsItem>
+  >;
+
+  /**
+   * Right Heading field in *ToPageButInSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.right_heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  right_heading: prismic.RichTextField;
+
+  /**
+   * Right Description field in *ToPageButInSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.right_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  right_description: prismic.RichTextField;
+
+  /**
+   * Slider Pictures field in *ToPageButInSlice → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.slider_pictures[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  slider_pictures: prismic.GroupField<
+    Simplify<ToPageButInSliceSliceDefaultPrimarySliderPicturesItem>
+  >;
+
+  /**
+   * Sub Heading and counts field in *ToPageButInSlice → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.sub_heading_and_counts[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  sub_heading_and_counts: prismic.GroupField<
+    Simplify<ToPageButInSliceSliceDefaultPrimarySubHeadingAndCountsItem>
+  >;
+
+  /**
+   * Environment field in *ToPageButInSlice → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.environment[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  environment: prismic.GroupField<
+    Simplify<ToPageButInSliceSliceDefaultPrimaryEnvironmentItem>
+  >;
+
+  /**
+   * Heading 2 field in *ToPageButInSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.heading_2
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading_2: prismic.RichTextField;
+
+  /**
+   * Description 2 field in *ToPageButInSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: to_page_but_in_slice.default.primary.description_2
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description_2: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ToPageButInSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ToPageButInSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ToPageButInSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ToPageButInSlice*
+ */
+type ToPageButInSliceSliceVariation = ToPageButInSliceSliceDefault;
+
+/**
+ * ToPageButInSlice Shared Slice
+ *
+ * - **API ID**: `to_page_but_in_slice`
+ * - **Description**: ToPageButInSlice
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ToPageButInSliceSlice = prismic.SharedSlice<
+  "to_page_but_in_slice",
+  ToPageButInSliceSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1856,6 +2238,9 @@ declare module "@prismicio/client" {
       SandboxDocument,
       SandboxDocumentData,
       SandboxDocumentDataSlicesSlice,
+      SpacepagesDocument,
+      SpacepagesDocumentData,
+      SpacepagesDocumentDataSlicesSlice,
       AllDocumentTypes,
       ConversionPanelSlice,
       ConversionPanelSliceDefaultPrimaryPanelItem,
@@ -1898,6 +2283,14 @@ declare module "@prismicio/client" {
       SpacesGridSliceDefaultPrimary,
       SpacesGridSliceVariation,
       SpacesGridSliceDefault,
+      ToPageButInSliceSlice,
+      ToPageButInSliceSliceDefaultPrimaryLeftContentsItem,
+      ToPageButInSliceSliceDefaultPrimarySliderPicturesItem,
+      ToPageButInSliceSliceDefaultPrimarySubHeadingAndCountsItem,
+      ToPageButInSliceSliceDefaultPrimaryEnvironmentItem,
+      ToPageButInSliceSliceDefaultPrimary,
+      ToPageButInSliceSliceVariation,
+      ToPageButInSliceSliceDefault,
     };
   }
 }

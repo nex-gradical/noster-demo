@@ -1,12 +1,9 @@
 "use client";
-{
-  /* Optimized HeaderClient one*/
-}
-
 import { useEffect, useState, useRef } from "react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import Logo from "@/components/Logo";
+import HeaderMobile from "./HeaderMobile";
 
 // 🛠️ TYPES: Defining interfaces prevents Vercel build failures
 interface NavProps {
@@ -17,11 +14,10 @@ interface NavProps {
       primary_cta: any;
     };
   };
+  additionalData: any;
 }
-
 /**
  * 🛠️ SUB-COMPONENT: Variation Default
- * ⚡ Added optional chaining (?.) to prevent crashes on empty Prismic fields
  */
 const MegaMenuDefault = ({ megaMenu }: { megaMenu: any }) => (
   <div className="flex justify-between mt-20 gap-6 w-full px-7">
@@ -122,8 +118,7 @@ const MegaMenuAbout = ({ megaMenu }: { megaMenu: any }) => (
   </div>
 );
 
-export default function HeaderClient({ navigation }: NavProps) {
-  // 🛠️ Safety check for initial data
+export default function HeaderClient({ navigation, additionalData }: NavProps) {
   if (!navigation?.data) return null;
 
   const { menu_items: menuItems, slices } = navigation.data;
@@ -137,7 +132,6 @@ export default function HeaderClient({ navigation }: NavProps) {
   const lastScroll = useRef(0);
 
   useEffect(() => {
-    // ⚡ Passive scroll listener is better for Vercel's performance scores (Lighthouse)
     const handleScroll = () => {
       const current = window.scrollY;
       const isScrollingUp = current < lastScroll.current;
@@ -175,7 +169,7 @@ export default function HeaderClient({ navigation }: NavProps) {
             setNavState((prev) => ({ ...prev, isHovered: false }));
             setActiveIndex(null);
           }}
-          className="flex h-20 w-full gap-10 items-center justify-between px-4"
+          className="hidden xl:flex h-20 w-full gap-10 items-center justify-between px-4"
         >
           <div className="z-110">
             <Logo active={navState.isHovered} solid={!navState.isAtTop} />
@@ -240,7 +234,9 @@ export default function HeaderClient({ navigation }: NavProps) {
             />
           </div>
         </nav>
+        <HeaderMobile navigation={navigation} additionalData={additionalData} />
       </header>
+      <div></div>
     </div>
   );
 }

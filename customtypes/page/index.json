@@ -26,6 +26,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "spaces_grid": {
+              "type": "SharedSlice"
+            },
+            "to_page_but_in_slice": {
+              "type": "SharedSlice"
+            },
             "mega_menu": {
               "type": "SharedSlice"
             },

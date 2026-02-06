@@ -10,4 +10,5 @@ export const components = {
   section3: dynamic(() => import("./Section3")),
   section4: dynamic(() => import("./Section4")),
   spaces_grid: dynamic(() => import("./SpacesGrid")),
+  to_page_but_in_slice: dynamic(() => import("./ToPageButInSlice")),
 };

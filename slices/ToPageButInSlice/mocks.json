@@ -1,0 +1,265 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"left_contents": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"return_button",
+								{
+									"key": "fc08ae02-2f99-4eab-b737-e30f9a283f7d",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io",
+										"text": "she"
+									}
+								}
+							],
+							[
+								"heading",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Reprehenderit aute qui qui. Est ea culpa consequat officia qui ex ea officia proident nulla. Est dolore dolore ad exercitation amet labore occaecat amet minim reprehenderit dolor sint ea Lorem."
+											}
+										}
+									]
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Culpa excepteur dolor nostrud pariatur proident nulla qui exercitation sunt do excepteur. Irure pariatur laboris labore in occaecat occaecat aliqua aliquip sit non elit consectetur exercitation ex. Aliqua enim pariatur officia."
+											}
+										}
+									]
+								}
+							],
+							[
+								"availability_status",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "worried",
+									"type": "Text"
+								}
+							],
+							[
+								"card_title",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Amet ullamco esse aliquip officia duis enim fugiat."
+											}
+										}
+									]
+								}
+							],
+							[
+								"card_button_link",
+								{
+									"key": "564b4243-8a3a-4e68-8419-989ee6d0b3f6",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev",
+										"text": "yet"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"right_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Pariatur id sint enim sunt nisi dolor mollit officia consectetur enim ad elit. Laboris cillum mollit deserunt."
+						}
+					}
+				]
+			},
+			"right_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ad cillum Lorem velit Lorem Lorem. Aliquip deserunt qui aute. Do ut mollit deserunt adipisicing deserunt fugiat."
+						}
+					}
+				]
+			},
+			"slider_pictures": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
+										"width": 4000,
+										"height": 6000
+									},
+									"url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
+									"width": 4000,
+									"height": 6000,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "bill",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							]
+						]
+					}
+				]
+			},
+			"sub_heading_and_counts": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"heading",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Est culpa nisi in exercitation labore proident cupidatat incididunt esse aliquip. Nisi aliqua quis qui ut duis. Ullamco nostrud Lorem fugiat anim culpa."
+											}
+										}
+									]
+								}
+							],
+							[
+								"sub_heading",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Incididunt id elit nulla laborum laboris laboris anim exercitation sint aliquip dolor deserunt. Occaecat qui excepteur amet sint proident commodo quis voluptate tempor amet."
+											}
+										}
+									]
+								}
+							],
+							[
+								"unit_number",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "wagon",
+									"type": "Text"
+								}
+							],
+							[
+								"sq_feet",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "foot",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"environment": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Lorem minim minim minim qui enim ad duis et adipisicing officia est veniam velit. Ea amet aute aliquip sit consectetur ipsum esse nisi sit ut voluptate ad deserunt."
+											}
+										}
+									]
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "In consectetur ut excepteur anim nulla exercitation est consequat sunt id labore eu laborum ipsum."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"heading_2": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Irure pariatur proident amet ullamco consequat exercitation ut. Excepteur adipisicing commodo eiusmod sunt id in labore aliqua velit sit minim aute irure. Consequat minim fugiat eiusmod pariatur enim et pariatur exercitation nostrud."
+						}
+					}
+				]
+			},
+			"description_2": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Reprehenderit excepteur aliquip esse."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

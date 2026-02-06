@@ -19,14 +19,17 @@ const ConversionPanel: FC<ConversionPanelProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       id="hide-conversion-bar"
-      className="py-20"
+      className="xl:py-20 my-15"
     >
-      <div className="w-full flex px-10">
-        <div className="w-full flex gap-4">
+      <div className="w-full flex px-3 xl:px-10">
+        <div className="w-full flex flex-col lg:flex-row gap-4">
           {slice.primary.panel.map((item, i) => (
             <CommonCard
               key={i}
+              containerClass={"w-full"}
               variant={i === 0 ? "maroon" : "green"}
+              headingClass={i === 0 ? "text-[#fbefdd]" : "white"}
+              dropDownDirection="bottom-full mb-1 md:top-full md:mt-1 md:bottom-auto"
               heading={item.heading}
               links={item.link}
               buttonLink={item.button_link}

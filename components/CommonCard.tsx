@@ -10,54 +10,58 @@ const CommonCard = ({
   buttonLink,
   showLogo,
   dropDownData,
-  isSearchCard, 
+  isSearchCard,
+  containerClass,
+  headingClass,
+  dropDownDirection = "down"
 }: any) => {
- 
   const bgColors: any = {
     maroon: "bg-[#4a0404]",
     green: "bg-[#253d35]",
     blue: "bg-[#1e3a8a]",
     charcoal: "bg-[#1a1a1a]",
+    sandal: "bg-[#f5d6ab]",
   };
 
   return (
-    <div className="w-full  h-full ">
+    <div className={` ${containerClass}`}>
       <div
-        className={`relative w-full flex flex-col justify-between py-10 pr-10 pl-13 text-white rounded-xl min-h-90 max-h-100 h-full ${
-          bgColors[variant] || bgColors.maroon
-        }`}
+        className={`relative w-full flex flex-col justify-between p-6 sm:p-8 md:py-10 md:pr-10 md:pl-13
+           text-white rounded-xl border h-full 
+          ${bgColors[variant] || bgColors.maroon}`}
       >
         {/* 1. Logo Slot */}
-        <div className="absolute top-8 right-8">
+        <div className="absolute top-4 right-4 md:top-8 md:right-8">
           {showLogo && (
-            <div className="flex flex-col items-end gap-1">
+            <div className="flex flex-col items-end gap-1 scale-75 md:scale-100">
               <Logo active={true} solid={true} />
             </div>
           )}
         </div>
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4 md:gap-6">
           {/* 2. Title Slot */}
-          <div className="max-w-xl text-5xl">
+          <div className={`${headingClass} max-w-xl text-3xl sm:text-4xl md:text-5xl font-medium  leading-tight`}>
             <PrismicRichText field={heading} />
           </div>
 
           {/* 3. Conditional Slot: Search Dropdown OR Standard Links */}
           {isSearchCard
-            ? /* Mode A: Search Bar */
-              dropDownData &&
+            ? dropDownData &&
               dropDownData.length > 0 && (
-                <div className="mt-20 px-5">
-                  <DropDown dataz={dropDownData} />
+                <div className="mt-8 md:mt-20 px-0 sm:px-5">
+                  <DropDown dataz={dropDownData} direction={dropDownDirection} />
                 </div>
               )
-            : /* Mode B: Standard Links */
-              links &&
+            : links &&
               links.length > 0 && (
-                <div className="flex gap-8 text-sm font-medium mt-3">
+                <div className="flex flex-col  xl:flex-row xl:flex-wrap gap-1 xl:gap-4 md:gap-8 text-sm font-medium mt-3">
                   {links.map((link: any, idx: number) => (
                     <div key={idx}>
-                      <PrismicNextLink field={link} className="text-2xl" />
+                      <PrismicNextLink
+                        field={link}
+                        className=" text-[#fbefdd] text-sm md:text-2xl hover:underline"
+                      />
                     </div>
                   ))}
                 </div>
@@ -65,13 +69,12 @@ const CommonCard = ({
         </div>
 
         {/* 4. Standard Button Slot */}
-        {/* Only shows if NOT a search card and a link exists */}
         {!isSearchCard && buttonLink && (
-          <div className="mb-8">
-            <button>
+          <div className="mt-8 mb-2 md:mb-8">
+            <button className="w-full sm:w-auto">
               <PrismicNextLink
                 field={buttonLink}
-                className="border rounded border-white px-12 py-4 font-pop text-xl hover:bg-white hover:text-black transition-colors"
+                className="block text-center border rounded border-white px-8 md:px-12 py-3 md:py-4 font-pop text-lg md:text-xl hover:bg-white hover:text-black transition-colors"
               />
             </button>
           </div>
