@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import SmoothScroll from "@/components/SmoothScroll";
 import Footer from "@/components/Footer/Footer";
+import ConversionBar from "@/components/ConversionBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,6 +47,7 @@ export default function RootLayout({
         <SmoothScroll>
           <Header />
           {children}
+          <ConversionBar/>
           <Footer/>
         </SmoothScroll>
       </body>

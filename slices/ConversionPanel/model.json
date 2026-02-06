@@ -12,25 +12,45 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "left_panel": {
+        "panel": {
           "type": "Group",
           "config": {
-            "label": "Left Panel",
-            "repeat": false,
+            "label": "Panel",
+            "repeat": true,
             "fields": {
-              "title": {
+              "logo": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Logo",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              },
+              "heading": {
                 "type": "StructuredText",
                 "config": {
-                  "label": "Title",
+                  "label": "Heading",
                   "placeholder": "",
                   "allowTargetBlank": true,
                   "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
                 }
               },
-              "contact_bar": {
+              "link": {
                 "type": "Link",
                 "config": {
-                  "label": "Contact Bar",
+                  "label": "Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": true
+                }
+              },
+              "dropdown_links": {
+                "type": "Link",
+                "config": {
+                  "label": "Dropdown Links",
                   "placeholder": "",
                   "select": null,
                   "allowTargetBlank": true,
@@ -48,36 +68,14 @@
                   "allowText": true,
                   "repeat": false
                 }
-              }
-            }
-          }
-        },
-        "right_pannel": {
-          "type": "Group",
-          "config": {
-            "label": "Right Pannel",
-            "repeat": false,
-            "fields": {
-              "heading": {
-                "type": "StructuredText",
-                "config": {
-                  "label": "Heading",
-                  "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-                }
               },
-              "options": {
-                "type": "Select",
+              "search_bar": {
+                "type": "Boolean",
                 "config": {
-                  "label": "Options",
-                  "placeholder": "Select a space",
-                  "options": [
-                    "workspace",
-                    "meeting_space",
-                    "event_space"
-                  ],
-                  "default_value": "workspace"
+                  "label": "Search Bar",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
                 }
               }
             }
