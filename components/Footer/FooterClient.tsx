@@ -11,7 +11,7 @@ import TriangleIcon from "../HoverTriangle";
 export default function FooterClient({ data }: any) {
   return (
     <div className="h-full xl:h-screen w-full  bg-[#1a171a]">
-      <div className="xl:px-25 xl:py-20 py-15 px-5 font-pop h-fit text-white ">
+      <div className="xl:px-25 xl:py-20 py-15 px-5 font-pop h-full text-white ">
         {/* Upper Section */}
         <div className="flex flex-col xl:flex-row h-full xl:justify-between">
           {/* Left Side */}
