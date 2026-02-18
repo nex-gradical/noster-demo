@@ -18,6 +18,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "style_guide": {
+              "type": "SharedSlice"
+            },
+            "we_work_hero": {
+              "type": "SharedSlice"
+            },
+            "the_table": {
+              "type": "SharedSlice"
+            },
             "to_page_but_in_slice": {
               "type": "SharedSlice"
             },

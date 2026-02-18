@@ -10,5 +10,8 @@ export const components = {
   section3: dynamic(() => import("./Section3")),
   section4: dynamic(() => import("./Section4")),
   spaces_grid: dynamic(() => import("./SpacesGrid")),
+  style_guide: dynamic(() => import("./StyleGuide")),
+  the_table: dynamic(() => import("./TheTable")),
   to_page_but_in_slice: dynamic(() => import("./ToPageButInSlice")),
+  we_work_hero: dynamic(() => import("./WeWorkHero")),
 };

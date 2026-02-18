@@ -643,6 +643,9 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 type SandboxDocumentDataSlicesSlice =
+  | StyleGuideSlice
+  | WeWorkHeroSlice
+  | TheTableSlice
   | ToPageButInSliceSlice
   | SpacesGridSlice
   | ConversionPanelSlice
@@ -1912,6 +1915,281 @@ export type SpacesGridSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *StyleGuide → Default → Primary*
+ */
+export interface StyleGuideSliceDefaultPrimary {
+  /**
+   * Typography field in *StyleGuide → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: style_guide.default.primary.typography
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  typography: prismic.RichTextField;
+
+  /**
+   * Rich Text field in *StyleGuide → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: style_guide.default.primary.rich_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  rich_text: prismic.RichTextField;
+
+  /**
+   * Demo Link field in *StyleGuide → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: style_guide.default.primary.demo_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  demo_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for StyleGuide Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type StyleGuideSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<StyleGuideSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *StyleGuide*
+ */
+type StyleGuideSliceVariation = StyleGuideSliceDefault;
+
+/**
+ * StyleGuide Shared Slice
+ *
+ * - **API ID**: `style_guide`
+ * - **Description**: StyleGuide
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type StyleGuideSlice = prismic.SharedSlice<
+  "style_guide",
+  StyleGuideSliceVariation
+>;
+
+/**
+ * Item in *TheTable → Default → Primary → Traditional office*
+ */
+export interface TheTableSliceDefaultPrimaryTraditionalOfficeItem {
+  /**
+   * Image field in *TheTable → Default → Primary → Traditional office*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: the_table.default.primary.traditional_office[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Text field in *TheTable → Default → Primary → Traditional office*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: the_table.default.primary.traditional_office[].text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
+ * Item in *TheTable → Default → Primary → Our Office*
+ */
+export interface TheTableSliceDefaultPrimaryOurOfficeItem {
+  /**
+   * Image field in *TheTable → Default → Primary → Our Office*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: the_table.default.primary.our_office[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Text field in *TheTable → Default → Primary → Our Office*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: the_table.default.primary.our_office[].text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
+ * Item in *TheTable → Default → Primary → The table*
+ */
+export interface TheTableSliceDefaultPrimaryTheTableItem {
+  /**
+   * Heading field in *TheTable → Default → Primary → The table*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: the_table.default.primary.the_table[].heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *TheTable → Default → Primary → The table*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: the_table.default.primary.the_table[].description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Do they field in *TheTable → Default → Primary → The table*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: the_table.default.primary.the_table[].do_they
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  do_they: prismic.BooleanField;
+
+  /**
+   * Do we field in *TheTable → Default → Primary → The table*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: the_table.default.primary.the_table[].do_we
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  do_we: prismic.BooleanField;
+}
+
+/**
+ * Primary content in *TheTable → Default → Primary*
+ */
+export interface TheTableSliceDefaultPrimary {
+  /**
+   * Heading field in *TheTable → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: the_table.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Sub Heading and Description field in *TheTable → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: the_table.default.primary.sub_heading_and_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  sub_heading_and_description: prismic.RichTextField;
+
+  /**
+   * Traditional office field in *TheTable → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: the_table.default.primary.traditional_office[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  traditional_office: prismic.GroupField<
+    Simplify<TheTableSliceDefaultPrimaryTraditionalOfficeItem>
+  >;
+
+  /**
+   * Our Office field in *TheTable → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: the_table.default.primary.our_office[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  our_office: prismic.GroupField<
+    Simplify<TheTableSliceDefaultPrimaryOurOfficeItem>
+  >;
+
+  /**
+   * The table field in *TheTable → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: the_table.default.primary.the_table[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  the_table: prismic.GroupField<
+    Simplify<TheTableSliceDefaultPrimaryTheTableItem>
+  >;
+
+  /**
+   * Button Link field in *TheTable → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: the_table.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for TheTable Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TheTableSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TheTableSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TheTable*
+ */
+type TheTableSliceVariation = TheTableSliceDefault;
+
+/**
+ * TheTable Shared Slice
+ *
+ * - **API ID**: `the_table`
+ * - **Description**: TheTable
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TheTableSlice = prismic.SharedSlice<
+  "the_table",
+  TheTableSliceVariation
+>;
+
+/**
  * Item in *ToPageButInSlice → Default → Primary → Left Contents*
  */
 export interface ToPageButInSliceSliceDefaultPrimaryLeftContentsItem {
@@ -2196,6 +2474,145 @@ export type ToPageButInSliceSlice = prismic.SharedSlice<
   ToPageButInSliceSliceVariation
 >;
 
+/**
+ * Item in *WeWorkHero → Default → Primary → Types*
+ */
+export interface WeWorkHeroSliceDefaultPrimaryTypesItem {
+  /**
+   * Icon field in *WeWorkHero → Default → Primary → Types*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: we_work_hero.default.primary.types[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Text field in *WeWorkHero → Default → Primary → Types*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: we_work_hero.default.primary.types[].text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
+ * Item in *WeWorkHero → Default → Primary → Hero Slider*
+ */
+export interface WeWorkHeroSliceDefaultPrimaryHeroSliderItem {
+  /**
+   * Hero Image field in *WeWorkHero → Default → Primary → Hero Slider*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: we_work_hero.default.primary.hero_slider[].hero_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  hero_image: prismic.ImageField<never>;
+
+  /**
+   * text field in *WeWorkHero → Default → Primary → Hero Slider*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: we_work_hero.default.primary.hero_slider[].text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *WeWorkHero → Default → Primary*
+ */
+export interface WeWorkHeroSliceDefaultPrimary {
+  /**
+   * Heading field in *WeWorkHero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: we_work_hero.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Description field in *WeWorkHero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: we_work_hero.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Types field in *WeWorkHero → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: we_work_hero.default.primary.types[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  types: prismic.GroupField<Simplify<WeWorkHeroSliceDefaultPrimaryTypesItem>>;
+
+  /**
+   * Drop Down field in *WeWorkHero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: we_work_hero.default.primary.drop_down
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  drop_down: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+
+  /**
+   * Hero Slider field in *WeWorkHero → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: we_work_hero.default.primary.hero_slider[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  hero_slider: prismic.GroupField<
+    Simplify<WeWorkHeroSliceDefaultPrimaryHeroSliderItem>
+  >;
+}
+
+/**
+ * Default variation for WeWorkHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type WeWorkHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<WeWorkHeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *WeWorkHero*
+ */
+type WeWorkHeroSliceVariation = WeWorkHeroSliceDefault;
+
+/**
+ * WeWorkHero Shared Slice
+ *
+ * - **API ID**: `we_work_hero`
+ * - **Description**: WeWorkHero
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type WeWorkHeroSlice = prismic.SharedSlice<
+  "we_work_hero",
+  WeWorkHeroSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -2283,6 +2700,17 @@ declare module "@prismicio/client" {
       SpacesGridSliceDefaultPrimary,
       SpacesGridSliceVariation,
       SpacesGridSliceDefault,
+      StyleGuideSlice,
+      StyleGuideSliceDefaultPrimary,
+      StyleGuideSliceVariation,
+      StyleGuideSliceDefault,
+      TheTableSlice,
+      TheTableSliceDefaultPrimaryTraditionalOfficeItem,
+      TheTableSliceDefaultPrimaryOurOfficeItem,
+      TheTableSliceDefaultPrimaryTheTableItem,
+      TheTableSliceDefaultPrimary,
+      TheTableSliceVariation,
+      TheTableSliceDefault,
       ToPageButInSliceSlice,
       ToPageButInSliceSliceDefaultPrimaryLeftContentsItem,
       ToPageButInSliceSliceDefaultPrimarySliderPicturesItem,
@@ -2291,6 +2719,12 @@ declare module "@prismicio/client" {
       ToPageButInSliceSliceDefaultPrimary,
       ToPageButInSliceSliceVariation,
       ToPageButInSliceSliceDefault,
+      WeWorkHeroSlice,
+      WeWorkHeroSliceDefaultPrimaryTypesItem,
+      WeWorkHeroSliceDefaultPrimaryHeroSliderItem,
+      WeWorkHeroSliceDefaultPrimary,
+      WeWorkHeroSliceVariation,
+      WeWorkHeroSliceDefault,
     };
   }
 }

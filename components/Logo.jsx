@@ -10,13 +10,7 @@ export default function Logo({ active, solid }) {
       <polygon
         points="50,10 90,90 10,90"
         fill="none"
-        stroke={
-          active
-            ? "#111" // when hovered (active)
-            : solid
-              ? "#111" // scrolled, inactive but black
-              : "#fff" // at top, inactive white
-        }
+        stroke={active ? "#111" : solid ? "#111" : "#fff"}
         strokeWidth="6"
         className={`
     transition-all duration-700 ease-out
@@ -29,13 +23,7 @@ export default function Logo({ active, solid }) {
         cx="50"
         cy="65"
         r={active ? "25" : "14"}
-        fill={
-          active
-            ? "#f59e0b" // hovered = amber
-            : solid
-              ? "#111" // scrolled = black
-              : "#fff" // at top = white
-        }
+        fill={active ? "#f59e0b" : solid ? "#111" : "#fff"}
         className="transition-all duration-700 ease-out"
       />
     </svg>
