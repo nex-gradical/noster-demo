@@ -10,7 +10,7 @@ export default async function ConversionBar() {
   const data = conversionBar.data;
   return (
     <ConversionBarWrapper>
-      <div className="hidden xl:flex flex-row justify-between gap-5 h-28 z-20 px-2 ">
+      <div className="hidden  flex-row justify-between gap-5 h-28 z-20 px-2 ">
         {/* Left Panel */}
         <div className="flex flex-1 bg-[#274038] rounded items-center justify-between px-5">
           <div>

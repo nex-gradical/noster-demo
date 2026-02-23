@@ -1,4 +1,4 @@
-// components/ArrowIcon.tsx
+
 export function ArrowIcon({
   className,
   direction = "right",

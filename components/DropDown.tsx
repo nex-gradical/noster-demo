@@ -13,9 +13,24 @@ const DropDown = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLink, setSelectedLink] = useState<any>(dataz?.[0] || null);
-  const router = useRouter();
+  const [finalDirection, setFinalDirection] = useState<string>("down");
 
+  const router = useRouter();
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const calculateDirection = useCallback(() => { 
+    if (!dropdownRef.current) return;
+
+    const rect = dropdownRef.current.getBoundingClientRect();
+    const spaceBelow = window.innerHeight - rect.bottom;
+    const isMobile = window.innerWidth < 1280; 
+
+    if (direction === "up" || (isMobile && direction === "up") || spaceBelow < 300) { 
+      setFinalDirection("up");
+    } else {
+      setFinalDirection("down");
+    }
+  }, [direction]); 
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -37,14 +52,6 @@ const DropDown = ({
     }
   }, [selectedLink, router]);
 
-  const getPlacementClasses = () => {
-    if (direction === "up") return "bottom-full mb-1";
-    if (direction === "down") return "top-full mt-1";
-    return direction; // Returns the custom responsive string
-  };
-
-  
-
   return (
     <div className="flex flex-col xl:flex-row gap-5 justify-between items-center xl:h-15 w-full">
       <div
@@ -52,7 +59,10 @@ const DropDown = ({
         className="relative w-full flex flex-1 border rounded border-[#f5d6ab]"
       >
         <button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => { 
+            if (!isOpen) calculateDirection();
+            setIsOpen(!isOpen);
+          }} 
           className="flex xl:flex-1 w-full items-center justify-between px-4 py-3 text-sm text-white tracking-wider"
         >
           <span className="text-xs xl:text-lg">
@@ -67,9 +77,10 @@ const DropDown = ({
 
         {isOpen && (
           <div
-            className={`absolute left-0 z-20 w-full bg-[#f5d6ab] border border-[#f5d6ab] rounded xl:rounded-none shadow-2xl ${getPlacementClasses()}`}
+            className={`absolute left-0 z-20 w-full bg-[#f5d6ab] border border-[#f5d6ab] rounded xl:rounded-none shadow-2xl 
+              ${finalDirection === "up" ? "bottom-full mb-1" : "top-full mt-1"}`}  
           >
-            <ul className="flex flex-col">
+            <ul className="flex flex-col max-h-64 "> 
               {dataz?.map((link: any, idx: number) => (
                 <li
                   key={idx}

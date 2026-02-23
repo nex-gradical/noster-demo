@@ -1,5 +1,4 @@
 "use client";
-import { createClient } from "@/prismicio";
 import PopUpModal from "./PopUpModal";
 import { PrismicNextImage } from "@prismicio/next";
 import { useState } from "react";
@@ -17,14 +16,18 @@ const SpaceCards = ({
   buttonTwo,
 }: any) => {
   const [isOpen, setIsOpen] = useState(false);
+  const handleOpenModal = () => {
+    if (window.innerWidth >= 768) {
+      setIsOpen(true);
+    }
+  };
   return (
     // Main COntainer
     <div
-      onClick={() => setIsOpen(true)}
+      onClick={handleOpenModal}
       className="border font-pop select-none group border-gray-200 w-full xl:min-h-140 rounded transition-colors duration-300 hover:border-gray-400 hover:shadow-md"
     >
       <div className="flex flex-col">
-
         {/* Image Container */}
 
         <div className="h-65 overflow-hidden rounded-t">

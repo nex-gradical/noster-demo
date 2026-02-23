@@ -1,0 +1,40 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"rich_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Amet esse amet nulla."
+						}
+					}
+				]
+			},
+			"demo_link": {
+				"key": "46cb4e0e-816d-462b-9bae-204ce00c7ccf",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com",
+					"text": "tried"
+				}
+			},
+			"typography": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Culpa culpa magna irure commodo adipisicing eiusmod laborum. Lorem ipsum ut tempor reprehenderit anim esse est fugiat aliquip. Nostrud fugiat ipsum officia sint anim nisi."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

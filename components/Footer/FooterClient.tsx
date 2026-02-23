@@ -51,7 +51,7 @@ export default function FooterClient({ data }: any) {
                         <PrismicNextLink field={link} className="text-xs xl:text-sm" />
                         <TriangleIcon
                           size={15}
-                          className="mt-[7.5px] transition-transform ease-out opacity-0 duration-400 rotate-0 group-hover:rotate-40 group-hover:opacity-100 "
+                          className=" mt-[4.2px] transition-transform ease-out opacity-0 duration-400 rotate-0 group-hover:rotate-40 group-hover:opacity-100 "
                         />
                       </div>
                     ))}
